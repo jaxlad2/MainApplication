@@ -59,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void digitentry(String entryvalue){
     setState((){
       if (entryvalue == "BACK"){
+        //range error exception needs adding
         tempinput.removeLast();
       }
       else{
