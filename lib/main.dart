@@ -103,57 +103,59 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Row(
               children: [
-              FloatingActionButton(
-              onPressed: () => digitentry("1"),
-              tooltip: 'Increment',
-              child: const Text("1"),
+                FloatingActionButton(
+                  onPressed: () => digitentry("1"),
+                  tooltip: 'Increment',
+                  child: const Text("1"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("2"),
+                  tooltip: 'Increment',
+                  child: const Text("2"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("3"),
+                  tooltip: 'Increment',
+                  child: const Text("3"),
+                ),
+              ],
             ),
-            FloatingActionButton(
-              onPressed: () => digitentry("2"),
-              tooltip: 'Increment',
-              child: const Text("2"),
-            ),
-            FloatingActionButton(
-              onPressed: () => digitentry("3"),
-              tooltip: 'Increment',
-              child: const Text("3"),
-            ),
-          ]),
             Row(
               children: [
                 FloatingActionButton(
-              onPressed: () => digitentry("4"),
-              tooltip: 'Increment',
-              child: const Text("4"),
+                  onPressed: () => digitentry("4"),
+                  tooltip: 'Increment',
+                  child: const Text("4"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("5"),
+                  tooltip: 'Increment',
+                  child: const Text("5"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("6"),
+                  tooltip: 'Increment',
+                  child: const Text("6"),
+                ),
+              ]
             ),
-            FloatingActionButton(
-              onPressed: () => digitentry("5"),
-              tooltip: 'Increment',
-              child: const Text("5"),
-            ),
-            FloatingActionButton(
-              onPressed: () => digitentry("6"),
-              tooltip: 'Increment',
-              child: const Text("6"),
-            ),
-              ]),
             Row(
               children: [
                 FloatingActionButton(
-              onPressed: () => digitentry("7"),
-              tooltip: 'Increment',
-              child: const Text("7"),
-            ),
-            FloatingActionButton(
-              onPressed: () => digitentry("8"),
-              tooltip: 'Increment',
-              child: const Text("8"),
-            ),
-            FloatingActionButton(
-              onPressed: () => digitentry("9"),
-              tooltip: 'Increment',
-              child: const Text("9"),
-            ),
+                  onPressed: () => digitentry("7"),
+                  tooltip: 'Increment',
+                  child: const Text("7"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("8"),
+                  tooltip: 'Increment',
+                  child: const Text("8"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("9"),
+                  tooltip: 'Increment',
+                  child: const Text("9"),
+                ),
               ],
             ),
             Row(
@@ -162,12 +164,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () => digitentry("0"),
                   tooltip: 'Increment',
                   child: const Text("0"),
-                  ),
-          ]),
+                ),
+              ]
+            ),
               
             
 
-            const Text('You have pushed the button this many times:'),
+            const Text('Numbers entered: '),
             Text(
               '$tempinput',
               style: Theme.of(context).textTheme.headlineMedium,
