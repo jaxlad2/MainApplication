@@ -106,6 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: .center,
           children: [
+            //make top row with 2 operator buttons to make formatting easier, figure out maths functionality
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
