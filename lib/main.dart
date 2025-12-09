@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: .fromSeed(seedColor: Colors.deepOrange),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -54,18 +54,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  List tempinput = [];
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+  void digitentry(String entryvalue){
+    setState((){
+      tempinput.add(entryvalue);
     });
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -104,19 +101,82 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: .center,
           children: [
+            Row(
+              children: [
+              FloatingActionButton(
+              onPressed: () => digitentry("1"),
+              tooltip: 'Increment',
+              child: const Text("1"),
+            ),
+            FloatingActionButton(
+              onPressed: () => digitentry("2"),
+              tooltip: 'Increment',
+              child: const Text("2"),
+            ),
+            FloatingActionButton(
+              onPressed: () => digitentry("3"),
+              tooltip: 'Increment',
+              child: const Text("3"),
+            ),
+          ]),
+            Row(
+              children: [
+                FloatingActionButton(
+              onPressed: () => digitentry("4"),
+              tooltip: 'Increment',
+              child: const Text("4"),
+            ),
+            FloatingActionButton(
+              onPressed: () => digitentry("5"),
+              tooltip: 'Increment',
+              child: const Text("5"),
+            ),
+            FloatingActionButton(
+              onPressed: () => digitentry("6"),
+              tooltip: 'Increment',
+              child: const Text("6"),
+            ),
+              ]),
+            Row(
+              children: [
+                FloatingActionButton(
+              onPressed: () => digitentry("7"),
+              tooltip: 'Increment',
+              child: const Text("7"),
+            ),
+            FloatingActionButton(
+              onPressed: () => digitentry("8"),
+              tooltip: 'Increment',
+              child: const Text("8"),
+            ),
+            FloatingActionButton(
+              onPressed: () => digitentry("9"),
+              tooltip: 'Increment',
+              child: const Text("9"),
+            ),
+              ],
+            ),
+            Row(
+              children:[
+                FloatingActionButton(
+                  onPressed: () => digitentry("0"),
+                  tooltip: 'Increment',
+                  child: const Text("0"),
+                  ),
+          ]),
+              
+            
+
             const Text('You have pushed the button this many times:'),
             Text(
-              '$_counter',
+              '$tempinput',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+
+      
     );
   }
 }
