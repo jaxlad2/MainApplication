@@ -58,7 +58,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void digitentry(String entryvalue){
     setState((){
-      tempinput.add(entryvalue);
+      if (entryvalue == "BACK"){
+        tempinput.removeLast();
+      }
+      else{
+        tempinput.add(entryvalue);
+      }
     });
   }
 
@@ -102,68 +107,107 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: .center,
           children: [
             Row(
-              children: [
-                FloatingActionButton(
-                  onPressed: () => digitentry("1"),
-                  tooltip: 'Increment',
-                  child: const Text("1"),
-                ),
-                FloatingActionButton(
-                  onPressed: () => digitentry("2"),
-                  tooltip: 'Increment',
-                  child: const Text("2"),
-                ),
-                FloatingActionButton(
-                  onPressed: () => digitentry("3"),
-                  tooltip: 'Increment',
-                  child: const Text("3"),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                FloatingActionButton(
-                  onPressed: () => digitentry("4"),
-                  tooltip: 'Increment',
-                  child: const Text("4"),
-                ),
-                FloatingActionButton(
-                  onPressed: () => digitentry("5"),
-                  tooltip: 'Increment',
-                  child: const Text("5"),
-                ),
-                FloatingActionButton(
-                  onPressed: () => digitentry("6"),
-                  tooltip: 'Increment',
-                  child: const Text("6"),
-                ),
-              ]
-            ),
-            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FloatingActionButton(
                   onPressed: () => digitentry("7"),
-                  tooltip: 'Increment',
+                  tooltip: '7',
                   child: const Text("7"),
                 ),
                 FloatingActionButton(
                   onPressed: () => digitentry("8"),
-                  tooltip: 'Increment',
+                  tooltip: '8',
                   child: const Text("8"),
                 ),
                 FloatingActionButton(
                   onPressed: () => digitentry("9"),
-                  tooltip: 'Increment',
+                  tooltip: '9',
                   child: const Text("9"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("-"),
+                  tooltip: 'minus operator',
+                  child: const Text("-")
                 ),
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FloatingActionButton(
+                  onPressed: () => digitentry("4"),
+                  tooltip: '4',
+                  child: const Text("4"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("5"),
+                  tooltip: '5',
+                  child: const Text("5"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("6"),
+                  tooltip: '6',
+                  child: const Text("6"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("+"),
+                  tooltip: 'addition operator',
+                  child: const Text("+")
+                ),
+              ]
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FloatingActionButton(
+                  onPressed: () => digitentry("1"),
+                  tooltip: '1',
+                  child: const Text("1"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("2"),
+                  tooltip: '2',
+                  child: const Text("2"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("3"),
+                  tooltip: '3',
+                  child: const Text("3"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("="),
+                  tooltip: 'equals operator',
+                  child: const Text("=")
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children:[
                 FloatingActionButton(
                   onPressed: () => digitentry("0"),
-                  tooltip: 'Increment',
+                  tooltip: '0',
                   child: const Text("0"),
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("*"),
+                  tooltip: 'multiplication operator',
+                  child: const Text("*")
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("/"),
+                  tooltip: 'division operator',
+                  child: const Text("/")
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("."),
+                  tooltip: 'decimal point',
+                  child: const Text(".")
+                ),
+                FloatingActionButton(
+                  onPressed: () => digitentry("BACK"),
+                  tooltip: 'Backspace',
+                  child: const Text("⌫")
                 ),
               ]
             ),
