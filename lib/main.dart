@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -55,15 +54,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List tempinput = [];
-
+  int usernumber = 0; //see if can use eval or something similar, maybe add code in another file to handle calculation of the final output
   void digitentry(String entryvalue){
     setState((){
       if (entryvalue == "BACK"){
         //range error exception needs adding
         tempinput.removeLast();
+        var t = tempinput.join();
+        usernumber = int.parse(t);
+      }
+      else if (entryvalue == "+" || entryvalue == "-" || entryvalue == "*" || entryvalue == "/" ){// operator functionality
+      }
+      else if(entryvalue == "="){//calculation functionality
       }
       else{
         tempinput.add(entryvalue);
+        var t = tempinput.join();
+        usernumber = int.parse(t);
       }
     });
   }
@@ -216,9 +223,9 @@ class _MyHomePageState extends State<MyHomePage> {
               
             
 
-            const Text('Numbers entered: '),
+            const Text('Your equation: '),
             Text(
-              '$tempinput',
+              '$usernumber',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
