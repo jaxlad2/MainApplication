@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
       else{
         tempinput.add(entryvalue);
         var t = tempinput.join();
-        usernumber = int.parse(t);
+        usernumber = int.parse(t);//doesnt work with decimals
       }
     });
   }
