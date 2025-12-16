@@ -53,24 +53,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List number = [];
+  String? operator;
+  int i = 0;
   List tempinput = [];
-  int usernumber = 0; //see if can use eval or something similar, maybe add code in another file to handle calculation of the final output
+  String usernumber = "";
   void digitentry(String entryvalue){
     setState((){
-      if (entryvalue == "BACK"){
-        //range error exception needs adding
+      if (entryvalue == "BACK" && tempinput.isNotEmpty){
         tempinput.removeLast();
-        var t = tempinput.join();
-        usernumber = int.parse(t);
+        usernumber = tempinput.join();
       }
-      else if (entryvalue == "+" || entryvalue == "-" || entryvalue == "*" || entryvalue == "/" ){// operator functionality
-      }
-      else if(entryvalue == "="){//calculation functionality
+      else if (entryvalue == "+" || entryvalue == "-" || entryvalue == "*" || entryvalue == "/" ||entryvalue =="=" ){// operator functionality
+        number.add(double.parse(usernumber));
+        operator = entryvalue;
+        print(number);
+        tempinput = [];
+        usernumber = "";
+        i = i+1;
       }
       else{
         tempinput.add(entryvalue);
-        var t = tempinput.join();
-        usernumber = int.parse(t);//doesnt work with decimals
+        usernumber = tempinput.join();
+      }
+      if(entryvalue == "="){//calculation functionality
+        //add a switch case for checking operator
+        double output = number[0] + number[1];
+        print(output);
       }
     });
   }
