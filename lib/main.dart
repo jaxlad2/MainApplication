@@ -53,11 +53,30 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List number = [];
+  List<double> number = [];
   String? operator;
-  int i = 0;
   List tempinput = [];
+  double result = 0;
+  int i = 0;
   String usernumber = "";
+  double calc(String? operator, List<double> number){//calculation functionality
+    double output = 0;
+    switch(operator){
+      case "+":
+        output = number[0] + number[1];
+        break;
+      case "-":
+        output = number[0] - number[1];
+        break;
+      case "*":
+        output = number[0] * number[1];
+        break;
+      case "/":
+        output = number[0] / number[1];
+        break;
+    }
+    return output;
+  }
   void digitentry(String entryvalue){
     setState((){
       if (entryvalue == "BACK" && tempinput.isNotEmpty){
@@ -65,21 +84,37 @@ class _MyHomePageState extends State<MyHomePage> {
         usernumber = tempinput.join();
       }
       else if (entryvalue == "+" || entryvalue == "-" || entryvalue == "*" || entryvalue == "/" ||entryvalue =="=" ){// operator functionality
-        number.add(double.parse(usernumber));
-        operator = entryvalue;
-        print(number);
-        tempinput = [];
-        usernumber = "";
-        i = i+1;
+        try{
+          if(number.isEmpty && i >= 1){
+            throw Exception("No number entered");
+          } 
+          else{
+            number.add(double.parse(usernumber));
+            if (operator != null || number.length == 2){
+              print(number);
+              result = calc(operator, number);
+              operator = null;
+              number = [];
+              number.add(result);
+            }
+            else{
+              tempinput = [];
+              usernumber = "";
+              if(entryvalue != "="){
+                operator = entryvalue;
+              }
+              print(number);
+            }
+          }
+        }
+        catch(e){
+          print(e);
+        }
+        i++;
       }
       else{
         tempinput.add(entryvalue);
         usernumber = tempinput.join();
-      }
-      if(entryvalue == "="){//calculation functionality
-        //add a switch case for checking operator
-        double output = number[0] + number[1];
-        print(output);
       }
     });
   }
@@ -234,7 +269,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
             const Text('Your equation: '),
             Text(
-              '$usernumber',
+              usernumber,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            const Text('Your answer: '),
+            Text(
+              result.toString(),
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
